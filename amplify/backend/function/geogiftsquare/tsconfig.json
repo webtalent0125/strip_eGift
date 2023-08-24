@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "lib": [
+            "dom",
+            "esnext"
+        ],
+        "module": "es2015",
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "outDir": "./src",
+        "baseUrl": "./",
+        "rootDir": "./lib",
+        "paths": {
+            "src": [
+                "./lib"
+            ]
+        }
+    },
+    "include": ["./**/*.ts", "./**/*.js", "./package.json"],
+    "exclude": ["node_modules"]
+}

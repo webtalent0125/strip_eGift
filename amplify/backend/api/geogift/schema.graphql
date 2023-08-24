@@ -1,0 +1,87 @@
+# The OAuth properties are not accessible by the user -- these properties are updated by the lambda functions that we
+# have configured.
+type SquareOAuthConnection @model(subscriptions: null) @auth(rules: [
+    { allow: owner, operations: [read, update, delete] }
+    { allow: private, provider: iam, operations: [create, read] }
+]) {
+    id: ID! @auth(rules: [
+        { allow: owner, operations: [create, read, update, delete] }
+        { allow: private, provider: iam, operations: [read] }
+    ])
+    merchantId: String! @index(name: "byMerchantId", queryField: "squareOAuthConnectionByMerchantId") @auth(rules: [
+        { allow: public, provider: apiKey, operations: [read] }
+        { allow: private, provider: iam, operations: [read] }
+        { allow: owner, operations: [read, delete] }
+    ])
+    expiresAt: String! @auth(rules: [
+        { allow: owner, operations: [read, delete] }
+        { allow: private, provider: iam, operations: [read, update] }
+    ])
+    accessToken: String!  @auth(rules: [
+        { allow: owner, operations: [delete] }
+        { allow: private, provider: iam, operations: [read, update] }
+    ])
+    refreshToken: String! @auth(rules: [
+        { allow: owner, operations: [delete] }
+        { allow: private, provider: iam, operations: [read, update] }
+    ])
+    owner: String @auth(rules: [
+        { allow: owner, operations: [read, delete] }
+    ]) @index(
+        name: "byOwner"
+        queryField: "squareOAuthConnectionByOwner"
+    )
+
+    merchantName: String @function(name: "geogiftsquare-${env}") @auth(rules: [
+        { allow: public, provider: apiKey, operations: [read] }
+        { allow: private, provider: iam, operations: [read] }
+        { allow: owner, operations: [read, delete] }
+    ])
+    chargeLocationId: String @auth(rules: [
+        { allow: owner, operations: [create, read, update, delete] }
+    ])
+
+    # Options for locations, from the Square API
+    locations: [SquareLocation] @function(name: "geogiftsquare-${env}")
+}
+
+type SquareLocation {
+    id: String
+    name: String
+    address: SquareLocationAddress
+}
+
+type SquareLocationAddress {
+    firstName: String
+    lastName: String
+    addressLine1: String
+    addressLine2: String
+    addressLine3: String
+    administrativeDistrictLevel1: String
+    administrativeDistrictLevel2: String
+    administrativeDistrictLevel3: String
+    country: String
+    locality: String
+    sublocality: String
+    sublocality2: String
+    sublocality3: String
+    postalCode: String
+}
+
+type Mutation {
+    # Called during the OAuth callback.
+    getOAuthToken(code: String!): String @function(name: "geogiftsquare-${env}")
+
+    # Called to create a gift card order and return a payment link
+    createGCOrder(
+        value: Float!
+        email: String!
+        merchantId: String!
+    ): CreateGCOrderResult @function(name: "geogiftsquare-${env}") @auth(rules: [{ allow: public }])
+}
+
+type CreateGCOrderResult {
+    url: String @auth(rules: [{ allow: public }])
+    orderId: String @auth(rules: [{ allow: public }])
+    error: String @auth(rules: [{ allow: public }])
+}

@@ -1,0 +1,6 @@
+{
+    "environment": "sandbox",
+    "endpoint": "https://connect.squareupsandbox.com",
+    "applicationId": "sandbox-sq0idb-6PJgcQ1DgKRF0n7B5eEitg",
+    "redirectUri": "https://staging.d3d404q5cwiwko.amplifyapp.com/square-callback"
+}

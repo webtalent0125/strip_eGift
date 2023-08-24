@@ -1,0 +1,7 @@
+.LocationPicker .mapboxgl-map {
+    border-radius: 10px;
+}
+
+.LocationPicker-Disabled .mapboxgl-map {
+    pointer-events: none;
+}

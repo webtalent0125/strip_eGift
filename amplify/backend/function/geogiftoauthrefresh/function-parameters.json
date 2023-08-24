@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "api": {
+      "geogift": [
+        "Query",
+        "Mutation"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "squareEndpoint",
+      "environmentVariableName": "SQUARE_ENDPOINT"
+    },
+    {
+      "cloudFormationParameterName": "squareApplicationId",
+      "environmentVariableName": "SQUARE_APPLICATION_ID"
+    }
+  ],
+  "secretNames": [
+    "SQUARE_APPLICATION_SECRET"
+  ]
+}

@@ -1,0 +1,29 @@
+svg.SuccessCheck {
+    width: 200px;
+    height: 200px;
+
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin-left: -100px;
+}
+
+
+svg.SuccessCheck.animate path {
+    animation: dash 0.75s linear both;
+    animation-delay: 0.5s;
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 210;
+    }
+
+    75% {
+        stroke-dashoffset: -220;
+    }
+
+    100% {
+        stroke-dashoffset: -205;
+    }
+}

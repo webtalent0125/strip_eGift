@@ -1,0 +1,73 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-geogift-staging-74523-authRole",
+      "UnauthRoleArn": "arn:aws:iam::169185332192:role/amplify-geogift-staging-74523-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::169185332192:role/amplify-geogift-staging-74523-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-geogift-staging-74523-deployment",
+      "UnauthRoleName": "amplify-geogift-staging-74523-unauthRole",
+      "StackName": "amplify-geogift-staging-74523",
+      "StackId": "arn:aws:cloudformation:us-east-1:169185332192:stack/amplify-geogift-staging-74523/5321c860-2eb3-11ed-b23e-0ee294d59291",
+      "AmplifyAppId": "d3d404q5cwiwko"
+    },
+    "categories": {
+      "auth": {
+        "geogift691d6458": {}
+      },
+      "function": {
+        "geogiftsquare": {
+          "secretsPathAmplifyAppId": "d3d404q5cwiwko",
+          "deploymentBucketName": "amplify-geogift-staging-74523-deployment",
+          "s3Key": "amplify-builds/geogiftsquare-48596f2f714557453146-build.zip",
+          "squareEndpoint": "https://connect.squareupsandbox.com",
+          "squareApplicationId": "sandbox-sq0idb-6PJgcQ1DgKRF0n7B5eEitg",
+          "squareRedirectUri": "https://staging.d3d404q5cwiwko.amplifyapp.com/square-callback"
+        },
+        "geogiftoauthrefresh": {
+          "secretsPathAmplifyAppId": "d3d404q5cwiwko",
+          "deploymentBucketName": "amplify-geogift-staging-74523-deployment",
+          "s3Key": "amplify-builds/geogiftoauthrefresh-7364493043365736434c-build.zip",
+          "squareEndpoint": "https://connect.squareupsandbox.com",
+          "squareApplicationId": "sandbox-sq0idb-6PJgcQ1DgKRF0n7B5eEitg"
+        }
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-geogift-dev-101940-authRole",
+      "UnauthRoleArn": "arn:aws:iam::169185332192:role/amplify-geogift-dev-101940-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::169185332192:role/amplify-geogift-dev-101940-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-geogift-dev-101940-deployment",
+      "UnauthRoleName": "amplify-geogift-dev-101940-unauthRole",
+      "StackName": "amplify-geogift-dev-101940",
+      "StackId": "arn:aws:cloudformation:us-east-1:169185332192:stack/amplify-geogift-dev-101940/8d856280-287f-11ed-aff3-0eab2ca9a161",
+      "AmplifyAppId": "d3d404q5cwiwko"
+    },
+    "categories": {
+      "auth": {
+        "geogift691d6458": {},
+        "true": {}
+      },
+      "function": {
+        "geogiftsquare": {
+          "secretsPathAmplifyAppId": "d3d404q5cwiwko",
+          "deploymentBucketName": "amplify-geogift-dev-101940-deployment",
+          "s3Key": "amplify-builds/geogiftsquare-48596f2f714557453146-build.zip",
+          "squareEndpoint": "https://connect.squareupsandbox.com",
+          "squareApplicationId": "sandbox-sq0idb-W-EMd9tewko1pVzopG6FHQ",
+          "squareRedirectUri": "http://localhost:3000/square-callback"
+        },
+        "geogiftoauthrefresh": {
+          "secretsPathAmplifyAppId": "d3d404q5cwiwko",
+          "deploymentBucketName": "amplify-geogift-dev-101940-deployment",
+          "s3Key": "amplify-builds/geogiftoauthrefresh-7364493043365736434c-build.zip",
+          "squareEndpoint": "https://connect.squareupsandbox.com",
+          "squareApplicationId": "sandbox-sq0idb-W-EMd9tewko1pVzopG6FHQ"
+        }
+      }
+    }
+  }
+}
